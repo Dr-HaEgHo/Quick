@@ -4,6 +4,7 @@ import { useFonts } from 'expo-font';
 import { Stack } from 'expo-router';
 import * as SplashScreen from 'expo-splash-screen';
 import { useEffect } from 'react';
+import { GlobalProvider } from '../context/context.service'
 
 import { useColorScheme } from '@/components/useColorScheme';
 
@@ -23,6 +24,15 @@ SplashScreen.preventAutoHideAsync();
 export default function RootLayout() {
   const [loaded, error] = useFonts({
     SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+    popBlack: require("../assets/fonts/Poppins-Black.ttf"),
+    popBold: require("../assets/fonts/Poppins-Bold.ttf"),
+    popEBold: require("../assets/fonts/Poppins-ExtraBold.ttf"),
+    popSBold: require("../assets/fonts/Poppins-SemiBold.ttf"),
+    popMid: require("../assets/fonts/Poppins-Medium.ttf"),
+    popReg: require("../assets/fonts/Poppins-Regular.ttf"),
+    popLight: require("../assets/fonts/Poppins-Light.ttf"),
+    popELight: require("../assets/fonts/Poppins-ExtraLight.ttf"),
+    popThin: require("../assets/fonts/Poppins-Thin.ttf"),
     ...FontAwesome.font,
   });
 
@@ -47,12 +57,23 @@ export default function RootLayout() {
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
 
+  const screenOptions = {
+    tabBarShowLabel: false,
+    headerShown: false,
+    tabBarStyle: {
+      display: "none"
+    },
+  };
+
   return (
-    <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
-      <Stack>
-        <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+    <GlobalProvider>
+    <ThemeProvider value={colorScheme === 'dark' ? DefaultTheme : DefaultTheme}>
+      <Stack screenOptions={screenOptions}>
+        <Stack.Screen name="(tabs)" options={{ headerShown: false }}  />
+        <Stack.Screen name="(dash)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>
-    </ThemeProvider>
+      </ThemeProvider>
+    </GlobalProvider>
   );
 }

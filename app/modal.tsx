@@ -1,18 +1,83 @@
 import { StatusBar } from 'expo-status-bar';
-import { Platform, StyleSheet } from 'react-native';
+import { Image, Platform, StyleSheet, TouchableOpacity } from 'react-native';
 
 import EditScreenInfo from '@/components/EditScreenInfo';
 import { Text, View } from '@/components/Themed';
+import { COLORS } from '@/constants/stylesheet';
+import { links } from '@/constants/data';
+import { Link, useRouter } from 'expo-router';
+import { GlobalContext } from '@/context/context.service';
+import { useContext } from 'react';
 
 export default function ModalScreen() {
+
+  const router: any = useRouter()
+  const { handleLogout } = useContext(GlobalContext)
+
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Modal</Text>
-      <View style={styles.separator} lightColor="#eee" darkColor="rgba(255,255,255,0.1)" />
-      <EditScreenInfo path="app/modal.tsx" />
+      <>
+        {
+          links && links.map(link => (
+            <TouchableOpacity
+              onPress={() => {
+                router.push(link.to)
+              }}
+              style={{
+                width: "80%",
+                margin: "auto",
+                marginVertical: 20,
+                paddingVertical: 12,
+                justifyContent: "flex-start",
+                alignItems: "center",
+                borderBottomWidth: 1,
+                borderColor: COLORS.black20,
+                flexDirection: "row",
+                gap: 10
+              }} key={link.id}>
+              <Image
+                source={link.icon}
+                style={{
+                  width: 20,
+                  height: 20
+                }}
+              />
+              <Text style={{
+                color: COLORS.black70,
+                fontFamily: "popMid"
+              }} >{link.title}</Text>
+            </TouchableOpacity>
+          ))
+        }
+      </>
+      <TouchableOpacity
+        onPress={handleLogout}
+        style={{
+          width: "80%",
+          margin: "auto",
+          marginVertical: 20,
+          paddingVertical: 12,
+          justifyContent: "flex-start",
+          alignItems: "center",
+          borderBottomWidth: 1,
+          borderColor: COLORS.black20,
+          flexDirection: "row",
+          gap: 10
+        }}>
+        <Image
+          source={require('../assets/images/logout.png')}
+          style={{
+            width: 20,
+            height: 20
+          }}
+        />
+        <Text style={{
+          color: COLORS.red,
+          fontFamily: "popMid"
+        }} >Logout</Text>
+      </TouchableOpacity>
 
-      {/* Use a light status bar on iOS to account for the black space above the modal */}
-      <StatusBar style={Platform.OS === 'ios' ? 'light' : 'auto'} />
+
     </View>
   );
 }
@@ -22,6 +87,7 @@ const styles = StyleSheet.create({
     flex: 1,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: COLORS.white
   },
   title: {
     fontSize: 20,
