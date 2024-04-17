@@ -1,4 +1,4 @@
-import { StyleSheet } from "react-native";
+import { StyleSheet, TextInput } from "react-native";
 
 // primaryBlue #1864F7
 
@@ -98,7 +98,7 @@ export const a = StyleSheet.create({
         fontFamily: 'popReg'
     },
     loginButton: {
-        width: 320,
+        width: "100%",
         backgroundColor: COLORS.primary,
         padding: 16,
         borderRadius: 99999,
@@ -182,6 +182,22 @@ export const a = StyleSheet.create({
         fontFamily: 'popMid',
         fontSize: 22,
         textAlign: "left"
+    },
+    wrapper:{
+        width: "100%",
+        flex: 1,
+        paddingHorizontal: 20
+    },
+    textInput:{
+        width: "100%",
+        height: 160,
+        borderColor: COLORS.primary,
+        borderWidth : 2,
+        paddingVertical: 22,
+        paddingHorizontal: 12,
+        borderRadius: 16,
+        color: COLORS.border,
+        alignItems: 'center',
+        marginTop: 36,
     }
-
 });

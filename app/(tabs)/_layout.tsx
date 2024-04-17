@@ -27,7 +27,7 @@ export default function TabLayout() {
         // to prevent a hydration error in React Navigation v6.
         // headerShown: useClientOnlyValue(false, true),
       }}>
-      <Tabs.Screen
+      {/* <Tabs.Screen
         name="login"
         options={{
           title: 'Login',
@@ -50,7 +50,7 @@ export default function TabLayout() {
           //   </Link>
           // ),
         }}
-      />
+      /> */}
     </Tabs>
   );
 }

@@ -85,7 +85,7 @@ export default function TabOneScreen() {
                 {visible ? <EyeSlash variant='Bold' color={COLORS.black40} size="30" /> : <Eye variant='Bold' color={COLORS.black40} size="30" /> }
               </TouchableOpacity> }
             </View>
-            <TouchableOpacity disabled={!isClear} onPress={() => handleSubmit()} style={ isClear ? a.loginButton : a.loginButtonDisabled} >
+            <TouchableOpacity disabled={isClear} onPress={() => handleSubmit()} style={ isClear ? a.loginButton : a.loginButtonDisabled}>
               { loginLoad ? <ActivityIndicator/> : <Text style={a.loginButtonTxt} > Login </Text>}
             </TouchableOpacity>
             <Pressable style={a.forgotPwd} >
@@ -98,4 +98,3 @@ export default function TabOneScreen() {
     // </TouchableWithoutFeedback>
   );
 }
-

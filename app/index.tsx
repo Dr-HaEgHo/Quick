@@ -8,7 +8,7 @@ const index = () => {
     const { isNewUser, isAuth } = useContext(GlobalContext)
 
     return (
-        (<Redirect href="/order" />)
+        (<Redirect href="/home" />)
     )
 }
 

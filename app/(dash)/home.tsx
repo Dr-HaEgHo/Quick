@@ -1,4 +1,5 @@
 import HomeCard from "@/components/HomeCard";
+import LocationPrompt from "@/components/Location";
 import NavBar from "@/components/NavBar";
 import OrderCard from "@/components/OrderCard";
 import { COLORS, a } from "@/constants/stylesheet";
@@ -26,6 +27,7 @@ export default function Home() {
             flex: 1,
             backgroundColor: COLORS.white
         }} >
+            <LocationPrompt/>
             <NavBar/>
             <ScrollView contentContainerStyle={{
                 backgroundColor: COLORS.white,
@@ -43,6 +45,7 @@ export default function Home() {
                     <HomeCard route="/promotions" image={require('../../assets/images/promoblue.png')} title="Promotions" />
                     <HomeCard route="/points" image={require('../../assets/images/pointblue.png')} title="My Points" />
                     <HomeCard route="/tutorials" image={require('../../assets/images/orderblue.png')} title="Tutorials" />
+                    <HomeCard route="/review" image={require('../../assets/images/star.png')} title="Give Review" />
 
                     <View style={a.latestOrder} >
                         <Text style={a.latestOrderTxt} >Latest order</Text>
