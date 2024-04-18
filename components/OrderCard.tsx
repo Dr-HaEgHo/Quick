@@ -27,7 +27,7 @@ const OrderCard: FC<OrderCardProps> = ({ image, title, description, time }) => {
                     overflow: "hidden"
                 }} >
                     <Image
-                        source={image}
+                        source={ image }
                         style={{
                             width: "100%",
                             height: "100%",

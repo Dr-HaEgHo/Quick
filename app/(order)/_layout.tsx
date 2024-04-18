@@ -311,6 +311,36 @@ export default function OrderLayout() {
                     // ),
                 }}
             />
+            
+            <Tabs.Screen
+                name="checkout"
+                options={{
+                    title: 'Payment Details',
+                    headerShown: true,
+                    headerStyle: {
+                        backgroundColor: COLORS.secondary,
+                    },
+                    headerTitleStyle: {
+                        color: COLORS.white,
+                        fontFamily: "popMid",
+                    },
+                    tabBarStyle: { display: "none" },
+                    // headerRight: () => (
+                    //     <Link href="/modal" asChild>
+                    //         <Pressable>
+                    //             {({ pressed }) => (
+                    //                 <FontAwesome
+                    //                     name="bars"
+                    //                     size={25}
+                    //                     color={COLORS.white}
+                    //                     style={{ marginRight: 15, opacity: pressed ? 0.5 : 1 }}
+                    //                 />
+                    //             )}
+                    //         </Pressable>
+                    //     </Link>
+                    // ),
+                }}
+            />
 
         </Tabs>
     );

@@ -125,7 +125,7 @@ const cart = () => {
                 </View>
             </ScrollView>
                     <TouchableOpacity
-                        onPress={() => router.push('/cart')}
+                        onPress={() => router.push('/checkout')}
                         style={{
                             // width: "100%",
                             height: 48,

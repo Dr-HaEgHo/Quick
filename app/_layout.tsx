@@ -66,7 +66,7 @@ function RootLayoutNav() {
   };
 
   return (
-    <GlobalProvider>
+    <GlobalProvider children>
     <ThemeProvider value={colorScheme === 'dark' ? DefaultTheme : DefaultTheme}>
       <Stack screenOptions={screenOptions}>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }}  />
